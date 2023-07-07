@@ -22,8 +22,7 @@ const {
   WG_PRE_UP,
   WG_POST_UP,
   WG_PRE_DOWN,
-  WG_POST_DOWN,
-  WG_SERVER_DNS
+  WG_POST_DOWN
 } = require('../config');
 
 module.exports = class WireGuard {
@@ -202,8 +201,8 @@ AllowedIPs = ${client.address}/32`;
 [Interface]
 PrivateKey = ${client.privateKey}
 Address = ${client.address}/24
-${WG_SERVER_DNS ? `DNS = ${WG_SERVER_DNS}` : ''}
 ${WG_MTU ? `MTU = ${WG_MTU}` : ''}
+DNS = ${config.server.address}
 
 [Peer]
 PublicKey = ${config.server.publicKey}
