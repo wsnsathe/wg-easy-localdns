@@ -23,6 +23,7 @@ const {
   WG_POST_UP,
   WG_PRE_DOWN,
   WG_POST_DOWN,
+  WG_SERVER_DNS
 } = require('../config');
 
 module.exports = class WireGuard {
@@ -96,6 +97,7 @@ module.exports = class WireGuard {
 PrivateKey = ${config.server.privateKey}
 Address = ${config.server.address}/24
 ListenPort = 51820
+DNS = ${WG_DEFAULT_DNS}
 PreUp = ${WG_PRE_UP}
 PostUp = ${WG_POST_UP}
 PreDown = ${WG_PRE_DOWN}
@@ -200,7 +202,7 @@ AllowedIPs = ${client.address}/32`;
 [Interface]
 PrivateKey = ${client.privateKey}
 Address = ${client.address}/24
-${WG_DEFAULT_DNS ? `DNS = ${WG_DEFAULT_DNS}` : ''}
+${WG_SERVER_DNS ? `DNS = ${WG_SERVER_DNS}` : ''}
 ${WG_MTU ? `MTU = ${WG_MTU}` : ''}
 
 [Peer]
