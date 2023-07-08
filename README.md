@@ -23,6 +23,7 @@ You have found the easiest way to install & manage WireGuard on any Linux host!
 * Statistics for which clients are connected.
 * Tx/Rx charts for each connected client.
 * Gravatar support.
+* Added support for local dns and container based wg-easy
 
 ## Requirements
 
