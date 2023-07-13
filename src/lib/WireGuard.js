@@ -96,7 +96,7 @@ module.exports = class WireGuard {
 [Interface]
 PrivateKey = ${config.server.privateKey}
 Address = ${config.server.address}/24
-ListenPort = 51820
+ListenPort = ${WG_PORT}
 DNS = ${WG_DEFAULT_DNS}
 PreUp = ${WG_PRE_UP}
 PostUp = ${WG_POST_UP}
